@@ -46,19 +46,18 @@ li {
     font-size: 1.714285em;
     font-weight: 300;
 }
-
+.flexbox {
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
 .checkbox-wrapper {
-    /*float: left;
-    width: 60px; -- Umbau flexbox*/
     flex-basis: 60px;
     text-align: center;
     line-height: 40px;
 }
 
 [type="checkbox"] {
-    /*vertical-align: middle; -- Umbau flexbox*/
-    align-self: flex-start;
-    /*border: none;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -73,10 +72,7 @@ li {
 }
 
 .label {
-    /*float: left;
-    width: calc(100% - 120px); -- Umbau flexbox*/
     flex-basis: calc(100% - 120px);
-    /*align-self: flex-start; -- unnötig*/
     line-height: 40px;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -84,8 +80,6 @@ li {
 }
 
 .button-wrapper {
-    /*float: left;
-    width: 60px;*/
     flex-basis: 60px;
     text-align: center;
 }
@@ -109,11 +103,4 @@ button::after {
 
 button:hover::after {
     opacity: 1;
-}
-.flexbox {
-    display:flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    /* align-items: center */
-    align-content: flex-start;
 }
