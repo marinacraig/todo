@@ -11,26 +11,27 @@
 </head>
 <body>
 <div class="wrapper">
-    <h1>todos</h1>
+    <h1 class="title__todos">todos</h1>
 
     <div class="todos">
-        <input type="text" class="newtodo" placeholder="Was muss erledigt werden?">
+        <input type="text" class="todos__new" placeholder="Was muss erledigt werden?">
 
-        <ul>
-            <li>
-                <label class="flexbox">
-                    <div class="checkbox-wrapper">
+        <ul class="todos__list">
+            <li class="todos__element">
+                <label class="todos__listelement">
+                    <div class="todos__checkbox-wrapper">
                         <input type="checkbox">
                     </div>
-                    <div class="label" title="Guten Morgen mit einem mega langen Text der ganz sicher aus der Liste rausläuft">
+                    <div class="todos__content" title="Guten Morgen mit einem mega langen Text der ganz sicher aus der Liste rausläuft">
                         Guten Morgen mit einem mega langen Text der ganz sicher aus der Liste rausläuft
                     </div>
-                    <div class="button-wrapper">
-                        <button></button>
+                    <div class="todos__button-wrapper">
+                        <button class="todos__button"></button>
                     </div>
                 </label>
             </li>
         </ul>
+        <div class="todos__footer"></div>
     </div>
 </div>
 </body>
