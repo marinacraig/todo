@@ -3,27 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Todo App</title>
-    <link rel="stylesheet" type="text/css", href="normalize.css">
+
     <link rel="stylesheet" type="text/css", href="style.css">
 </head>
 <body>
-<div class="wrapper">
-    <h1 class="title__todos">todos</h1>
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="title__todos">todos</h1>
+        </div>
+    </div>
     <div class="todos">
-        <input type="text" class="todos__new" placeholder="Was muss erledigt werden?">
-
-        <ul class="todos__list">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="todos__new" placeholder="Was muss erledigt werden?">
+            </div>
+        </div>
+        <form>
+            <ul class="todos__list">
+                <li class="todos__element">
+                    <div class="form-row todos__listelement">
+                        <div class="form-group col todos__checkbox-wrapper">
+                            <input type="checkbox">
+                        </div>
+                        <div class="form-group col todos__content" title="Guten Morgen mit einem mega langen Text der ganz sicher aus der Liste rausläuft">
+                        Guten Morgen mit einem mega langen Text der ganz sicher aus der Liste rausläuft
+                        </div>
+                        <div class="form-group col todos__button-wrapper">
+                            <button class="todos__button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="todos__element">
+                    <div class="form-row todos__listelement">
+                        <div class="form-group col todos__checkbox-wrapper">
+                            <input type="checkbox">
+                        </div>
+                        <div class="form-group col todos__content" title="noch etwas">
+                            noch etwas
+                        </div>
+                        <div class="form-group col todos__button-wrapper">
+                            <button class="todos__button"></button>
+                        </div>
+                    </div>
+<<<<<<< HEAD
+                </li>
+            </ul>
+        </form>
+=======
+                </label>
+            </li>
             <li class="todos__element">
                 <label class="todos__listelement">
                     <div class="todos__checkbox-wrapper">
                         <input type="checkbox">
                     </div>
-                    <div class="todos__content" title="Guten Morgen mit einem mega langen Text der ganz sicher aus der Liste rausläuft">
-                        Guten Morgen mit einem mega langen Text der ganz sicher aus der Liste rausläuft
+                    <div class="todos__content" title="und was kurzes">
+                        und was kurzes
                     </div>
                     <div class="todos__button-wrapper">
                         <button class="todos__button"></button>
@@ -44,6 +83,7 @@
                 </label>
             </li>
         </ul>
+>>>>>>> develop
         <div class="todos__footer"></div>
     </div>
 </div>
