@@ -10,9 +10,11 @@
     <link rel="stylesheet" type="text/css", href="normalize.css">
     <link rel="stylesheet" type="text/css", href="style.css">
 
+    <script src="node_modules/todooo/todo.js"></script>
     <script src="js/ready.js"></script>
     <script src="js/todo.js"></script>
-    <script src="todooo/todo.js"></script>
+
+
 
 </head>
 <body>
@@ -22,7 +24,7 @@
     <div class="todos">
         <input type="text" class="todos__new" placeholder="Was muss erledigt werden?">
 
-        <ul class="todos__list">
+        <ul id="todos__list" class="todos__list">
             <li class="todos__element">
                 <label class="todos__listelement">
                     <div class="todos__checkbox-wrapper">
