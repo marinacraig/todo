@@ -1,68 +1,30 @@
-"use strict";
+"use strict"
 
+/**
+ * neue variable um auf todooo bzw. jene Listen _Klasse zuzugreifen
+ * @type {TodoList}
+ */
 let todoList = new TodoList();
 
-todoList.addTask('hahah');
-todoList.addTask('hahah');
-todoList.addTask('hahah');
-
 ready(() => {
+    /**
+     * variable zum eingabe erkennbar machen sowie wohin es soll
+     * @type {NodeListOf<Element>}
+     */
+    let inputNewTask = document.querySelectorAll('.todos__new')
+    let todoList = document.getElementById('todos__list')
 
-    let taskInputFields = document.querySelectorAll('.todos__new');
-    let liste = document.getElementById('todos__list');
-
-    taskInputFields.forEach((inputEl) => {
-        // Auf Enter Taste hören
-        inputEl.addEventListener('keypress', e => {
-            if (e.keyCode === 13 && inputEl.value !== '') {
-                // task der Liste hinzufügen
-                let task = todoList.addTask(inputEl.value);
+    inputNewTask.forEach ((input) => {
+        input.addEventListener ('keypress', e => {
+            if (e.keyCode === 13 && e.value !=='') {
+                /**
+                 * kreiire einen neuen Eintrag
+                 */
+                let task = todoList.addTask(input.value);
                 addTaskToList(task);
                 // input wieder leeren
-                inputEl.value = '';
-
+                input.value = '';
             }
-        });
-    });
-
-
-    /**
-     * fügt einen Task der Liste(DOM) hinzu
-     * @param task
-     */
-    let addTaskToList = (task)=>{
-        let newDomItem = createItemDom(task);
-        liste.appendChild(newDomItem);
-    };
-
-
-    /**
-     * Baut die initiale Liste auf
-     * @param taskListe
-     */
-    let initTaskList = (taskListe) => {
-        taskListe.forEach(task => {
-            let i = createItemDom(task)
-            liste.appendChild(i);
         })
-    };
-
-    /**
-     * Erstellt ein dom item für einen neuen task
-     * todo: muss noch vervollständigt werden
-     * @param task
-     * @returns {HTMLLIElement}
-     */
-    let createItemDom = (task) => {
-        let item = document.createElement('li');
-        item.classList.add('todos__element');
-        item.innerText = task.text;
-        return item;
-    };
-
-
-    // Initialisiert die Liste
-    liste.innerHTML = '';
-    initTaskList(todoList.tasks);
-
-});
+    })
+})
