@@ -25,9 +25,20 @@ ready(() => {
             if(e.keyCode === 13 && event.value !== '') {
                 console.log(event.value);
 
+                let task = todoList.addTask(event.value);
+                addTaskToList(task);
+
+                /**
+                 * Eingabefeld wieder leeren
+                 * @type {string}
+                 */
+                event.value = '';
+
+
+
             }
         })
     });
 
-});
 
+});
