@@ -12,7 +12,7 @@ ready(() => {
      * @type {NodeListOf<Element>}
      */
     let inputNewTask = document.querySelectorAll('.todos__new');
-    let todoList = document.getElementById('todos__list');
+    let todoListe = document.getElementById('todos__list');
 
     /**
      * Loop für jede neue Eingabe im Eingabefeld
