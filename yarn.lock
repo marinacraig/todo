@@ -2,6 +2,6 @@
 # yarn lockfile v1
 
 
-"todooo@git+https://github.com/webprofessionals/todooo.git":
-  version "1.0.2"
-  resolved "git+https://github.com/webprofessionals/todooo.git#1779ec2540d5e451e9b2ace58b2891120a49263f"
+todooo@webprofessionals/todooo.git#^1.2.0:
+  version "1.2.0"
+  resolved "https://codeload.github.com/webprofessionals/todooo/tar.gz/218b176f5dfbe3f24092ceb3dd887b6a46a582f7"

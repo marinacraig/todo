@@ -17,8 +17,6 @@
   },
   "homepage": "https://github.com/marinaenadeghe/todo#readme",
   "dependencies": {
-    //"todooo": "git+https://github.com/webprofessionals/todooo.git"
-    // wegen version  abgeschrieben
-    "@node_modules/todooo": "Webprossionals/todooo#1.0.2"
+    "todooo": "webprofessionals/todooo.git#^1.2.0"
   }
 }
