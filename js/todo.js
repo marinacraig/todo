@@ -1,99 +1,70 @@
 "use strict";
 
-let todoList = new TodoList();
-todoList.addTask('Milch kaufen');
-todoList.addTask('MacBook bestellen');
-todoList.addTask('Auto kaufen (ev. Leasen)');
+let todoList = new TodoList(); // Unser TodoListen Modell
+let taskInputFields; // Alle Eingabefelder der UI
+let liste; // Die Liste der unerledigten Tasks
+let erledigtliste; // Die Liste der erledigten Tasks
+let todos; // Hülle um beide Listen
+
+const ENTERTASTE = 13;
+const ECAPETASTE = 27;
+
+todoList.onInitComplete = () => {
+  // Baue die Liste in der UI auf sobald das model bereit ist
+  //Todo: Inhalt vom LI im Html entfernen, damit wir auf das leeren des li's verzichten können
+  liste.innerHTML = '';
+  initListInUI(todoList.tasks);
+};
 
 ready(() => {
 
-    let taskInputFields = document.querySelectorAll('.todos__new');
-    let liste = document.getElementById('todos__list');
+  /**
+   * UI Elemente
+   */
+  taskInputFields = document.querySelectorAll('.todos__new');
+  liste = document.getElementById('todos__list');
+  todos = document.getElementById('todos');
+  erledigtliste = document.getElementById('erledigtliste');
 
-    liste.addEventListener('click', e => {
-        if (e.target.classList.contains('delete')) {
-            console.log('delete', e.target.parentNode.task)
-            /*
-            gibt die ID zurück: console.log('delete', e.target.parentNode.task.id)
-            let deleten = e.target.parentNode.task.id;
-            todoList.removeTask(deleten);
-            */
-            todoList.removeTaskByID(e.target.parentNode.task.id);
-            e.target.parentNode.remove();
-        }
-        if (e.target.classList.contains('erledigt')) {
-            e.target.parentNode.check();
-        }
 
+  /**
+   * UI Listener
+   */
+
+  todos.addEventListener('text-blured', e => {
+    textAktualisierenWennNoetig(e);
+  });
+
+  todos.addEventListener('click', e => {
+    loeschenWennMoeglich(e);
+    erledigenWennMoeglich(e);
+    unerledigenWennMoeglich(e);
+  });
+
+  // Auf den Keyup event hören, weil die ESC Taste keinen Keypress auslösen tut
+  todos.addEventListener('keyup', e => {
+
+    if (e.keyCode === ECAPETASTE) {
+      taskInputFields[0].focus();
+    }
+    /**
+     * control + enter zum speichern. Eigentlich verlassen wir das Feld nur, denn beim verlassen wird gespeichert.
+     * TODO: Eventuell das Nächste Item anspringen und nicht wieder auf die Eingabe
+     */
+    if (e.keyCode === ENTERTASTE && e.ctrlKey === true) {
+      taskInputFields[0].focus();
+    }
+
+  });
+
+  taskInputFields.forEach((inputEl) => {
+    inputEl.addEventListener('keypress', e => {
+      // Auf Enter Taste hören
+      if (e.keyCode === ENTERTASTE && inputEl.value !== '') {
+        createTaskFromInput(inputEl);
+        // input wieder leeren
+        inputEl.value = '';
+      }
     });
-
-    taskInputFields.forEach((inputEl) => {
-        // Auf Enter Taste hören
-        inputEl.addEventListener('keypress', e => {
-            if (e.keyCode === 13 && inputEl.value !== '') {
-                // task der Liste hinzufügen
-                let task = todoList.addTask(inputEl.value);
-                addTaskToList(task);
-                // input wieder leeren
-                inputEl.value = '';
-
-            }
-        });
-    });
-
-
-    /**
-     * fügt einen Task der Liste(DOM) hinzu
-     * @param task
-     */
-    let addTaskToList = (task) => {
-        let newDomItem = createItemDom(task);
-        liste.appendChild(newDomItem);
-    };
-
-
-    /**
-     * Baut die initiale Liste auf
-     * @param taskListe
-     */
-    let initTaskList = (taskListe) => {
-        taskListe.forEach(task => {
-            let i = createItemDom(task);
-            liste.appendChild(i);
-        })
-    };
-
-    /**
-     * Erstellt ein dom item für einen neuen task
-     * todo: muss noch vervollständigt werden
-     * @param task
-     * @returns {HTMLLIElement}
-     */
-    let createItemDom = (task) => {
-        let item = document.createElement('li');
-        item.task = task;
-
-        let del = document.createElement('button');
-        del.innerText='del';
-        del.classList.add('delete');
-        item.appendChild(del);
-
-        let erledigt = document.createElement('button');
-        erledigt.innerText='done';
-        erledigt.classList.add('erledigt');
-        item.appendChild(erledigt);
-
-        item.classList.add('todo__item');
-        let text = document.createElement('text');
-        text.innerText = task.text;
-        item.appendChild(text);
-
-        return item;
-    };
-
-
-    // Initialisiert die Liste
-    liste.innerHTML = '';
-    initTaskList(todoList.tasks);
-
+  });
 });
