@@ -21,8 +21,8 @@ ready(() => {
   /**
    * UI Elemente
    */
-  taskInputFields = document.querySelectorAll('.todos__new');
-  liste = document.getElementById('todos__list');
+  taskInputFields = document.querySelectorAll('.todo__inputfield');
+  liste = document.getElementById('liste');
   todos = document.getElementById('todos');
   erledigtliste = document.getElementById('erledigtliste');
 
