@@ -18,13 +18,10 @@ todoList.onInitComplete = () => {
 
 ready(() => {
 
-  /**
-   * UI Elemente
-   */
-  taskInputFields = document.querySelectorAll('.todo__inputfield');
-  liste = document.getElementById('liste');
-  todos = document.getElementById('todos');
-  erledigtliste = document.getElementById('erledigtliste');
+    taskInputFields = document.querySelectorAll('.todos__new');
+    liste = document.getElementById('todos__list');
+    todos = document.getElementById('todoslist');
+    erledigtliste = document.getElementById('erledigtliste');
 
 
   /**

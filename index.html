@@ -14,7 +14,7 @@
     <script src="js/ready.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/todo.js"></script>
-    <script src="js/storage.js"></script>
+    <script src="js/serverStorage.js"></script>
 
 
 
@@ -25,7 +25,7 @@
 
     <div class="todos">
         <input type="text" class="todos__new" placeholder="Was muss erledigt werden?">
-
+        <div id="todoslist">
         <ul id="todos__list" class="todos__list">
             <li class="todos__element">
                 <label class="todos__listelement">
@@ -57,6 +57,7 @@
         <hr>
         <ul id="erledigtliste">
         </ul>
+        </div>
         <div class="todos__footer"></div>
     </div>
 </div>
