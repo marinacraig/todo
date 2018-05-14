@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marinaenadeghe/todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marinaenadeghe/todo/issues"
+  },
+  "homepage": "https://github.com/marinaenadeghe/todo#readme",
+  "dependencies": {
+    "todooo": "webprofessionals/todooo.git#^1.2.0"
+  }
+}

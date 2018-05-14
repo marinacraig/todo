@@ -9,6 +9,15 @@
 
     <link rel="stylesheet" type="text/css", href="normalize.css">
     <link rel="stylesheet" type="text/css", href="style.css">
+
+    <script src="../node_modules/todooo/todo.js"></script>
+    <script src="js/ready.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/serverStorage.js"></script>
+
+
+
 </head>
 <body>
 <div class="wrapper">
@@ -16,8 +25,8 @@
 
     <div class="todos">
         <input type="text" class="todos__new" placeholder="Was muss erledigt werden?">
-
-        <ul class="todos__list">
+        <div id="todoslist">
+        <ul id="todos__list" class="todos__list">
             <li class="todos__element">
                 <label class="todos__listelement">
                     <div class="todos__checkbox-wrapper">
@@ -45,6 +54,10 @@
                 </label>
             </li>
         </ul>
+        <hr>
+        <ul id="erledigtliste">
+        </ul>
+        </div>
         <div class="todos__footer"></div>
     </div>
 </div>
