@@ -8,25 +8,25 @@
     <title>Todo App</title>
 
     <link rel="stylesheet" type="text/css", href="normalize.css">
-    <link rel="stylesheet" type="text/css", href="style.css">
+    <link rel="stylesheet" type="text/css", href="css/style.css">
 
-    <script src="node_modules/todooo/todo.js"></script>
+    <script src="../node_modules/todooo/todo.js"></script>
     <script src="js/ready.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/serverStorage.js"></script>
 
 
+
 </head>
 <body>
 <div class="wrapper">
-    <!--<button action="../../php/login/logout.php" method="post">logout</button>-->
     <h1 class="title__todos">todos</h1>
 
     <div class="todos">
         <input type="text" class="todos__new" placeholder="Was muss erledigt werden?">
-        <div id="todoslist"> <!-- id="todoslist" wird benötigt -->
-        <ul id="todos__list" class="todos__list"> <!-- id="todos__list" wird benötigt -->
+        <div id="todoslist">
+        <ul id="todos__list" class="todos__list">
             <li class="todos__element">
                 <label class="todos__listelement">
                     <div class="todos__checkbox-wrapper">
@@ -40,17 +40,6 @@
                     </div>
                 </label>
             </li>
-            <!--livia mit meinen klassen statt span input checkbox
-            <li class="todos__element">
-            <label class="todos__listelement">
-                <div class="todos__checkbox-wrapper"><input type="checkbox"></div>
-                <div class="todos__content" title="Milch bearbeiten und überhaupt">Milch bearbeiten und überhaupt</div>
-                <div class="todos__button-wrapper">
-                    <button class="todos__button"></button>
-                </div>
-            </label>
-            </li>
-            -->
             <li class="todos__element">
                 <label class="todos__listelement">
                     <div class="todos__checkbox-wrapper">
@@ -66,7 +55,7 @@
             </li>
         </ul>
         <hr>
-        <ul id="erledigtliste"> <!-- id="erledigtliste" wird benötigt -->
+        <ul id="erledigtliste">
         </ul>
         </div>
         <div class="todos__footer"></div>

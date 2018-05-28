@@ -5,50 +5,46 @@
  * Diese Methoden kennen nur die UI und das Model
  */
 
-
 // task erzeugen und der Liste hinzufügen
-let createTaskFromInput = function (inputEl) {
-  let task = todoList.addTask(inputEl.value);
+
+var createTaskFromInput = function createTaskFromInput(inputEl) {
+  var task = todoList.addTask(inputEl.value);
   addTaskToUI(task);
 };
-
 
 /**
  * fügt einen Task der Liste(DOM) hinzu
  * @param task
  */
-let addTaskToUI = (task) => {
-  let newDomItem = createDomItem(task);
+var addTaskToUI = function addTaskToUI(task) {
+  var newDomItem = createDomItem(task);
   liste.appendChild(newDomItem);
 };
-
 
 /**
  * Baut die initiale Liste auf
  * @param taskListe
  */
-let initListInUI = (taskListe) => {
-  taskListe.forEach(task => {
-    let i = createDomItem(task);
+var initListInUI = function initListInUI(taskListe) {
+  taskListe.forEach(function (task) {
+    var i = createDomItem(task);
     liste.appendChild(i);
-  })
+  });
 };
 
-
-let textAktualisierenWennNoetig = e =>{
-  let task = e.detail.parentNode.task;
-  let uiText = e.detail.innerHTML;
-  if(task.text !==  uiText){
+var textAktualisierenWennNoetig = function textAktualisierenWennNoetig(e) {
+  var task = e.detail.parentNode.task;
+  var uiText = e.detail.innerHTML;
+  if (task.text !== uiText) {
     task.text = uiText;
   }
-
 };
 /**
  * prüft ob ein Eintrag als erledigt markiert werden kann,
  * und macht es dann auch gleich
  * @param e
  */
-let erledigenWennMoeglich = function (e) {
+var erledigenWennMoeglich = function erledigenWennMoeglich(e) {
   if (e.target.classList.contains('check')) {
     e.target.parentNode.task.check();
     erledigtliste.appendChild(createDomItem(e.target.parentNode.task));
@@ -61,7 +57,7 @@ let erledigenWennMoeglich = function (e) {
  * und macht es dann auch gleich
  * @param e
  */
-let loeschenWennMoeglich = function (e) {
+var loeschenWennMoeglich = function loeschenWennMoeglich(e) {
   if (e.target.classList.contains('delete')) {
     todoList.removeTaskByID(e.target.parentNode.task.id);
     e.target.parentNode.remove();
@@ -73,7 +69,7 @@ let loeschenWennMoeglich = function (e) {
  * und macht es dann auch gleich
  * @param e
  */
-let unerledigenWennMoeglich = function (e) {
+var unerledigenWennMoeglich = function unerledigenWennMoeglich(e) {
   if (e.target.classList.contains('uncheck')) {
     e.target.parentNode.task.uncheck();
     liste.appendChild(createDomItem(e.target.parentNode.task));
@@ -81,17 +77,16 @@ let unerledigenWennMoeglich = function (e) {
   }
 };
 
-
 /**
  * Erstellt ein dom item für einen neuen task
  * @param task
  * @returns {HTMLLIElement}
  */
-let createDomItem = (task) => {
-  let item = document.createElement('li');
-  let deleteButton = document.createElement('button');
-  let erledigtButton = document.createElement('button');
-  let text = document.createElement('text');
+var createDomItem = function createDomItem(task) {
+  var item = document.createElement('li');
+  var deleteButton = document.createElement('button');
+  var erledigtButton = document.createElement('button');
+  var text = document.createElement('text');
 
   item.task = task;
   /**
@@ -99,7 +94,6 @@ let createDomItem = (task) => {
    * TODO: das CSS weniger spezifisch machen, damit wir dem li nicht noch extra eine Klasse zuweisen müssen.
    */
   item.classList.add('todo__item');
-
 
   /**
    * Erledigt Button kann check oder uncheck sein.
@@ -114,34 +108,18 @@ let createDomItem = (task) => {
     item.appendChild(erledigtButton);
   }
 
-/* funktioniert nicht:
-    if (!task.erledigt) {
-        let done = erledigtButton
-            .createElement = 'div'
-            .classList.add('todos__checkbox-wrapper')
-            .innerHTML = '<input type="checkbox">';
-        item.appendChild(erledigtButton);
-
-Relativ nahe dran:
-    if (!task.erledigt) {
-        erledigtButton.innerHTML = '<div><input type="checkbox"></div>';
-        erledigtButton.classList.add('todos__checkbox-wrapper');
-        item.appendChild(erledigtButton);
-    }
-*/
   /**
    * Wir machen den Text direkt editierbar und benachrichtigen bei blur
    * TODO: im CSS für den Text den outline auf none setzen.
    */
   text.innerHTML = task.text;
-  text.setAttribute('contentEditable',true);
-  text.addEventListener('blur', e => {
-    let customEvent = new Event('text-blured', {bubbles: true});
+  text.setAttribute('contentEditable', true);
+  text.addEventListener('blur', function (e) {
+    var customEvent = new Event('text-blured', { bubbles: true });
     customEvent.detail = e.target;
     text.dispatchEvent(customEvent);
   });
   item.appendChild(text);
-
 
   /**
    * Delete Button bekommt die Klasse delete weil wir in loeschenWennMoeglich diesen abfragen
