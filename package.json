@@ -1,0 +1,32 @@
+{
+  "name": "hello",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marinaenadeghe/todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marinaenadeghe/todo/issues"
+  },
+  "homepage": "https://github.com/marinaenadeghe/todo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-run-sequence": "^0.3.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4"
+  }
+}

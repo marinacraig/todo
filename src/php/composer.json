@@ -1,0 +1,8 @@
+{
+    "require": {
+        "nesbot/carbon": "^1.27"
+    },
+    "autoload": {
+        "classmap": ["./"]
+    }
+}
